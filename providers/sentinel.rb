@@ -66,6 +66,7 @@ def create_config
     owner "root"
     group "root"
     mode 00644
+    action :create_if_missing
     variables :sentinel => new_resource.state,
               :master_name => new_resource.master_name,
               :config => {
