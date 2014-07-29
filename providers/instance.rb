@@ -92,8 +92,8 @@ def create_config
   redis_service_name = redis_service
   template "#{new_resource.conf_dir}/#{new_resource.name}.conf" do
     source "redis.conf.erb"
-    owner "redis"
-    group "redis"
+    owner new_resource.user
+    group new_resource.group
     mode 00644
     variables :config => new_resource.state
     case new_resource.init_style
