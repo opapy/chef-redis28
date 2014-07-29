@@ -70,8 +70,8 @@ def create_directories
   end
 
   directory new_resource.conf_dir do
-    owner "root"
-    group "root"
+    owner new_resource.user
+    group new_resource.group
     mode 00755
   end
 
