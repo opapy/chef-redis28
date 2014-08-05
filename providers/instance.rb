@@ -96,6 +96,7 @@ def create_config
     group new_resource.group
     mode 00644
     variables :config => new_resource.state
+    action :create_if_missing
     case new_resource.init_style
     when "init"
       notifies :restart, "service[#{redis_service_name}]"
