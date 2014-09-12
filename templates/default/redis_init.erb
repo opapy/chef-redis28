@@ -53,7 +53,7 @@ case "$1" in
                 chown -R <%= @user %>:<%= @user %> <%= @logfile %>
                 <% end %>
                 echo "Starting Redis server..."
-                sudo -u <%= @user %> $EXEC $CONF
+		su -s /bin/sh <%= @user %> -c "$EXEC $CONF"
         fi
         ;;
     stop)
